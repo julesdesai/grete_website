@@ -1,0 +1,19 @@
+# Non-optimized images (large originals)
+assets/images/collections/aw25/runway_shots/*.jpg
+assets/images/collections/aw25/runway_shots/*.JPG
+assets/images/collections/aw25/detail_shots/*.jpg
+assets/images/collections/aw25/detail_shots/*.JPG
+
+# Keep optimized folders
+!assets/images/collections/aw25/runway_shots/optimized/
+!assets/images/collections/aw25/detail_shots/optimized/
+
+# Original hero images
+assets/images/hero/hero_1.tif
+assets/images/hero/hero_2.jpg
+
+# Stray files
+assets/images/collections/aw25/Look 1.jpg
+
+# macOS
+.DS_Store
