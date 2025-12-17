@@ -12,6 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
+ * Close all open galleries (collections and subcollections)
+ */
+function closeAllGalleries() {
+  document.querySelectorAll(".collection.is-open").forEach((c) => {
+    c.classList.remove("is-open");
+  });
+  document.querySelectorAll(".subcollection.is-open").forEach((s) => {
+    s.classList.remove("is-open");
+  });
+}
+
+/**
  * Collection Accordion
  * Handles expanding/collapsing collection sections
  */
@@ -27,18 +39,16 @@ function initCollections() {
     if (!header) return;
 
     header.addEventListener("click", () => {
-      // Close other collections (optional - remove for multi-open)
-      collections.forEach((other) => {
-        if (other !== collection && other.classList.contains("is-open")) {
-          other.classList.remove("is-open");
-        }
-      });
+      const isOpening = !collection.classList.contains("is-open");
 
-      // Toggle current collection
-      collection.classList.toggle("is-open");
+      // Close all galleries first
+      closeAllGalleries();
 
-      // Reset gallery position when opening
-      if (collection.classList.contains("is-open")) {
+      // Open this collection if it was closed
+      if (isOpening) {
+        collection.classList.add("is-open");
+
+        // Reset gallery position when opening
         const gallery = collection.querySelector(".gallery-track");
         if (gallery) {
           gallery.scrollLeft = 0;
@@ -47,9 +57,10 @@ function initCollections() {
     });
   });
 
-  // Open first collection by default
-  if (collections.length > 0) {
-    collections[0].classList.add("is-open");
+  // Open first subcollection by default (Runway)
+  const firstSubcollection = document.querySelector(".subcollection");
+  if (firstSubcollection) {
+    firstSubcollection.classList.add("is-open");
   }
 }
 
@@ -64,18 +75,16 @@ function initSubcollections() {
     const header = subcollection.querySelector(".subcollection-header");
 
     header.addEventListener("click", () => {
-      // Close other subcollections
-      subcollections.forEach((other) => {
-        if (other !== subcollection && other.classList.contains("is-open")) {
-          other.classList.remove("is-open");
-        }
-      });
+      const isOpening = !subcollection.classList.contains("is-open");
 
-      // Toggle current subcollection
-      subcollection.classList.toggle("is-open");
+      // Close all galleries first
+      closeAllGalleries();
 
-      // Reset gallery position when opening
-      if (subcollection.classList.contains("is-open")) {
+      // Open this subcollection if it was closed
+      if (isOpening) {
+        subcollection.classList.add("is-open");
+
+        // Reset gallery position when opening
         const gallery = subcollection.querySelector(".gallery-track");
         if (gallery) {
           gallery.scrollLeft = 0;
@@ -84,11 +93,6 @@ function initSubcollections() {
       }
     });
   });
-
-  // Open first subcollection by default
-  if (subcollections.length > 0) {
-    subcollections[0].classList.add("is-open");
-  }
 }
 
 /**
