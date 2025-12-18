@@ -1,0 +1,12 @@
+{
+  "galleries": {
+    "aw25-runway": {
+      "path": "assets/images/collections/aw25/runway_shots/optimized",
+      "images": ["Look 1(1).jpg","Look 1(2).jpg","Look 10.jpg","Look 11(1).jpg","Look 12.jpg","Look 13(1).jpg","Look 13(2).jpg","Look 2(1).jpg","Look 3(2).jpg","Look 4(1).jpg","Look 5(1).jpg","Look 6&7.jpg","Look 8(1).jpg","Look 9(3).jpg","ZHarpist.jpg"]
+    },
+    "editorial": {
+      "path": "assets/images/collections/editorial/optimized",
+      "images": ["aR1-06806-0005.jpg","R1-06801-0002.jpg","R1-06801-0008.jpg","R1-06802-0000.jpg","R1-06803-0005.jpg","R1-06805-0006.jpg","R1-06805-0008.jpg"]
+    }
+  }
+}
